@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
+
+:root {
+  --background: #f0f0f0;
+  --foreground: #171717;
+  --blue: #3831bf;
+  --gray: #d9d9d9;
+}
+
+@theme inline {
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #f0f0f0;
+    --foreground: #ededed;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Inter, sans-serif;
+  background: var(--background);
+}
+
+.title-1 {
+  font-family: Inter;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 64px;
+  color: #3831bf;
+  line-height: 100%;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1064px) {
+  .title-1 {
+    font-size: 40px;
+    letter-spacing: 0%;
+  }
+}
+
+@media (max-width: 395px) {
+  .title-1 {
+    font-size: 32px;
+    letter-spacing: 0%;
+  }
+}
+
+.font-inter {
+  font-family: "Inter", sans-serif;
+}
+
+.blue {
+  color: var(--blue);
+}
+
+.custom-scroll::-webkit-scrollbar {
+  width: 10px; /* ширина полосы прокрутки */
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  background: transparent; /* фон трека */
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: #3831bf; /* цвет ползунка */
+  border-radius: 20px;
+  min-height: 31px; /* минимальная высота ползунка */
+}
+
+/* Для Firefox */
+.custom-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #3831bf transparent;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.no-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+/* Page Transitions */
+.page-enter {
+  animation: pageEnter 0.3s ease-out;
+}
+
+@keyframes pageEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth link transitions */
+a {
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.8;
+}
