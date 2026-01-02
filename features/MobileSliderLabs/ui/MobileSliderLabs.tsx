@@ -113,11 +113,8 @@ const AddonToggle = ({ title, price, description, enabled, onToggle }: AddonTogg
 const MobileSliderLabs = () => {
   const [activeTab, setActiveTab] = useState("edu");
   const [activeSubTab, setActiveSubTab] = useState<SubTabKey>("works");
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const [enabledAddons, setEnabledAddons] = useState<Record<string, boolean>>({});
   const [freeTasksChecked, setFreeTasksChecked] = useState(true);
   const [freeContentChecked, setFreeContentChecked] = useState(true);
-  const [consentChecked, setConsentChecked] = useState(false);
   const [isOpenBonus, setIsOpenBonus] = useState(false);
   const router = useRouter();
   const { isAuthenticated, setPendingPayment } = useAuthStore();
@@ -152,15 +149,6 @@ const MobileSliderLabs = () => {
 
   const handleSubTabChange = (id: SubTabKey) => {
     setActiveSubTab(id);
-    setSelectedIndex(null);
-    setEnabledAddons({});
-  };
-
-  const toggleAddon = (addonId: string) => {
-    setEnabledAddons(prev => ({
-      ...prev,
-      [addonId]: !prev[addonId],
-    }));
   };
 
   // Функции для мобильного слайдера
@@ -270,34 +258,10 @@ const MobileSliderLabs = () => {
             <MobileTicketCard 
               key={idx} 
               {...item} 
-              selected={selectedIndex === idx} 
+              selected={false} 
               onSelect={() => handleSelect(idx)} 
             />
           ))}
-
-          {/* Дополнительные опции */}
-          {addons.length > 0 && selectedIndex !== null && (
-            <div className="bg-white rounded-[20px] p-4 mt-2">
-              <h4 className="text-[18px] font-bold mb-3">Дополнительные опции</h4>
-              {addons.map(addon => (
-                <AddonToggle
-                  key={addon.id}
-                  {...addon}
-                  enabled={!!enabledAddons[addon.id]}
-                  onToggle={() => toggleAddon(addon.id)}
-                />
-              ))}
-            </div>
-          )}
-
-          {/* ИТОГО */}
-          {selectedIndex !== null && (
-            <div className="p-5 bg-[#3831BF] rounded-[20px] flex justify-between items-center shadow-lg mt-2">
-              <span className="text-[20px] font-bold text-white">ИТОГО:</span>
-              <span className="text-[32px] font-bold text-white">{totalPrice}₽</span>
-            </div>
-          )}
-
         </div>
       </div>
       
