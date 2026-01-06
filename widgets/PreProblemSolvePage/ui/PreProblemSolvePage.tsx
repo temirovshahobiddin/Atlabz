@@ -52,7 +52,7 @@ const PreProblemSolvePage = () => {
       </div>
 
       <div className="flex flex-col lg:flex-row gap-[15px] w-full">
-        <Textarea onClick={(hasFile) => handleProblemSolveClick(hasFile)} placeholder="Введи или прикрепи задачу (текст, фото, файл)" />
+        <Textarea onSubmitClick={(hasFile) => handleProblemSolveClick(hasFile)} placeholder="Введи или прикрепи задачу (текст, фото, файл)" />
 
         <div className="hidden lg:flex flex-col gap-[29px] bg-white rounded-[20px] py-10 px-[30px]">
           <div className="flex gap-2.5 items-center ">

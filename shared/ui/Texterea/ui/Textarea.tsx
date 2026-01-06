@@ -9,10 +9,10 @@ import { useDropzone } from "react-dropzone";
 
 interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   onAttach?: (files: FileList) => void;
-  onClick?: (hasFile: boolean) => void;
+  onSubmitClick?: (hasFile: boolean) => void;
 }
 
-const Textarea: React.FC<TextareaProps> = ({ onAttach, onClick, ...props }) => {
+const Textarea: React.FC<TextareaProps> = ({ onAttach, onSubmitClick, ...props }) => {
   const fileInputRef = React.useRef<HTMLInputElement>(null);
 
   const [attachments, setAttachments] = React.useState<{ file: File; preview: string; id: string }[]>([]);
@@ -128,7 +128,7 @@ const Textarea: React.FC<TextareaProps> = ({ onAttach, onClick, ...props }) => {
           </div>
 
           <div className="flex flex-col gap-2 sm:gap-2.5 lg:gap-[15px] text-center">
-            <Button onClick={() => onClick?.(attachments.length > 0)} type="button">
+            <Button onClick={() => onSubmitClick?.(attachments.length > 0)} type="button">
               Получить решение
             </Button>
             <p className="text-[14px] lg:text-[24px] text-[#1D1D1D99] leading-[120%] tracking-[0%] font-medium">

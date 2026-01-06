@@ -65,7 +65,7 @@ const SubsHero = ({
       </div>
       <div className="flex gap-[15px] mt-[10px] max-xl:flex-col">
         <div className="bg-white  rounded-[20px] max-w-[1346px] w-full">
-          <Textarea onClick={(hasFile) => handleClick(hasFile)} />
+          <Textarea onSubmitClick={(hasFile) => handleClick(hasFile)} />
         </div>
         <div className="hidden lg:flex flex-col gap-[29px] bg-white rounded-[20px] py-10 px-[30px]">
           <div className="flex gap-2.5 items-center ">
