@@ -38,8 +38,7 @@ export default function RootLayout({
       >
         {/* <Router /> */}
         <Header />
-        <ClientLayout>{children}</ClientLayout>
-        <Footer />
+        <ClientLayout footer={<Footer />}>{children}</ClientLayout>
       </body>
     </html>
   );

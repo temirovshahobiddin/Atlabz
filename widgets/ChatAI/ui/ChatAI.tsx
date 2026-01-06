@@ -35,8 +35,8 @@ const ChatAI = () => {
   };
 
   return (
-    <section className="flex flex-col h-full">
-      <div className="flex-1 flex flex-col gap-5 mb-5">
+    <section className="flex flex-col min-h-[calc(100vh-120px)]">
+      <div className="flex-1 flex flex-col gap-5 pb-5">
         {/* Вопрос пользователя */}
         <div className="bg-[#3831BF] text-white rounded-[20px] p-5 w-full">
           <p className="text-[14px] sm:text-[16px] lg:text-[18px] leading-[140%]">
@@ -59,6 +59,18 @@ const ChatAI = () => {
               AtLabs
             </h3>
             <div className="text-[14px] sm:text-[16px] lg:text-[18px] leading-[160%] text-[#1D1D1D]">
+              <p className="font-semibold mb-2">{aiResponse.title}</p>
+              <pre className="whitespace-pre-wrap font-sans">{aiResponse.content}</pre>
+            </div>
+             <div className="text-[14px] sm:text-[16px] lg:text-[18px] leading-[160%] text-[#1D1D1D]">
+              <p className="font-semibold mb-2">{aiResponse.title}</p>
+              <pre className="whitespace-pre-wrap font-sans">{aiResponse.content}</pre>
+            </div>
+             <div className="text-[14px] sm:text-[16px] lg:text-[18px] leading-[160%] text-[#1D1D1D]">
+              <p className="font-semibold mb-2">{aiResponse.title}</p>
+              <pre className="whitespace-pre-wrap font-sans">{aiResponse.content}</pre>
+            </div>
+             <div className="text-[14px] sm:text-[16px] lg:text-[18px] leading-[160%] text-[#1D1D1D]">
               <p className="font-semibold mb-2">{aiResponse.title}</p>
               <pre className="whitespace-pre-wrap font-sans">{aiResponse.content}</pre>
             </div>
@@ -95,8 +107,8 @@ const ChatAI = () => {
         </div>
       </div>
 
-      {/* Поле ввода */}
-      <div className="w-full">
+      {/* Поле ввода - sticky внизу */}
+      <div className="sticky bottom-0 w-full bg-[#f0f0f0] pt-3 pb-5">
         <ChatSend
           value={message}
           onChange={e => setMessage(e.target.value)}
