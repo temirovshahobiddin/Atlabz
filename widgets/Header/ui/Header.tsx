@@ -47,7 +47,7 @@ const Header = () => {
       </Link>
 
       {/* Навигация — скрыта на мобильных */}
-      <nav className="hidden xl:flex gap-[30px] items-center list-none font-inter text-[16px] 2xl:text-[20px] font-medium leading-[16px] tracking-[-1px]">
+      <nav className="hidden xl:flex gap-4 2xl:gap-6 min-[1700px]:gap-[30px] items-center list-none font-inter text-[14px] xl:text-[15px] 2xl:text-[18px] min-[1700px]:text-[20px] font-medium leading-[16px] tracking-[-1px]">
         {isProfilePage ? (
           <>
             <li>
@@ -97,19 +97,15 @@ const Header = () => {
 
       {!isProfilePage && (
         <>
-          <div className="hidden xl:flex justify-between items-center gap-[30px] w-full max-w-[150px] 2xl:max-w-[413px]">
-            <div className="w-full hidden 2xl:block 2xl:max-w-[233px]">
-              <Link href={"/select-register"}>
-                <Button className="text-[16px]! 2xl:text-[20px]! h-[60px]! tracking-[-1px]!" variant={3}>
-                  Зарегистрироваться
-                </Button>
-              </Link>
-            </div>
-            <div className="w-[150px] shrink-0">
-              <Link href={"/login"}>
-                <Button variant={1} className="h-[60px]! tracking-[-1px]!">Войти</Button>
-              </Link>
-            </div>
+          <div className="hidden xl:flex items-center gap-2.5 shrink-0">
+            <Link href={"/select-register"}>
+              <Button className="text-[14px]! 2xl:text-[18px]! h-[52px]! 2xl:h-[60px]! px-5! 2xl:px-6! tracking-[-1px]! whitespace-nowrap" variant={3}>
+                Зарегистрироваться
+              </Button>
+            </Link>
+            <Link href={"/login"}>
+              <Button variant={1} className="h-[52px]! 2xl:h-[60px]! px-8! 2xl:px-10! text-[14px]! 2xl:text-[18px]! tracking-[-1px]!">Войти</Button>
+            </Link>
           </div>
         </>
       )}

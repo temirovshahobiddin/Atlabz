@@ -20,9 +20,21 @@ const SubsHero = ({
   const [typeWork, setTypeWork] = useState<boolean>(false);
   const router = useRouter();
 
-  const handleClick = () => {
+  const handleClick = (hasFile: boolean) => {
+    const isPremium = localStorage.getItem("premium") === "true";
     router.push("/working");
-    setTimeout(() => router.push("/non-premium/full-access"), 12000);
+    
+    if (hasFile) {
+      // Если загружен файл - проверяем premium
+      if (isPremium) {
+        setTimeout(() => router.push("/premium/condition-solve"), 12000);
+      } else {
+        setTimeout(() => router.push("/non-premium/full-access"), 12000);
+      }
+    } else {
+      // Если только текст - сразу в chat-ai
+      setTimeout(() => router.push("/chat-ai"), 12000);
+    }
   };
   return (
     <>
@@ -53,7 +65,7 @@ const SubsHero = ({
       </div>
       <div className="flex gap-[15px] mt-[10px] max-xl:flex-col">
         <div className="bg-white  rounded-[20px] max-w-[1346px] w-full">
-          <Textarea onClick={handleClick} />
+          <Textarea onClick={(hasFile) => handleClick(hasFile)} />
         </div>
         <div className="hidden lg:flex flex-col gap-[29px] bg-white rounded-[20px] py-10 px-[30px]">
           <div className="flex gap-2.5 items-center ">

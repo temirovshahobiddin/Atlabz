@@ -16,10 +16,13 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { phoneSchema, emailSchema, FormType } from "./schema";
 import { useRouter } from "next/navigation";
+import { useAuthStore } from "@/shared/store/authStore";
 
 const AuthPage = () => {
-  const [method, setMethod] = useState<string>("email"); // Заглушка для метода входа
+  const [method, setMethod] = useState<string>("email");
+  const [error, setError] = useState<string | null>(null);
   const router = useRouter();
+  const { login, isLoading, pendingPayment } = useAuthStore();
   const schema = method === "email" ? emailSchema : phoneSchema;
   type CurrentFormType = z.infer<typeof schema>;
 
@@ -32,9 +35,21 @@ const AuthPage = () => {
     defaultValues: method === "email" ? { email: "", password: "" } : { phone: "", password: "" },
   });
 
-  const onSubmit = (data: FormType) => {
-    router.push("/profile/cabinet");
-    console.log(data);
+  const onSubmit = async (data: FormType) => {
+    setError(null);
+    try {
+      const type = method === "email" ? "email" : "phone";
+      const value = method === "email" ? (data as any).email : (data as any).phone.replace(/\D/g, "");
+      await login(type, value, data.password);
+      if (pendingPayment) {
+        router.push("/premium/choose-type-work");
+      } else {
+        router.push("/profile/cabinet");
+      }
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "Ошибка входа";
+      setError(message);
+    }
   };
   return (
     <div className="flex flex-col justify-center">
@@ -72,8 +87,10 @@ const AuthPage = () => {
           error={errors.password?.message}
         />
 
-        <Button type="submit" variant={1} className="mt-5">
-          Продолжить
+        {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+
+        <Button type="submit" variant={1} className="mt-5" disabled={isLoading}>
+          {isLoading ? "Вход..." : "Продолжить"}
         </Button>
       </form>
 

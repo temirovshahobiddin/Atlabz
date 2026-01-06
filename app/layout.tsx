@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased max-w-[1800px] mx-auto px-4 sm:px-5 2xl:px-0 overflow-x-hidden`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased max-w-[1800px] mx-auto py-2 px-4 sm:px-5 2xl:px-0 overflow-x-hidden`}
       >
         {/* <Router /> */}
         <Header />

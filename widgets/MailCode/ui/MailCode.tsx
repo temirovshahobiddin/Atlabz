@@ -5,19 +5,28 @@ import mail from "@/shared/assets/auth/mail.png";
 import Button from "@/shared/ui/Button";
 import OTPInput from "@/shared/ui/OTPInput";
 import { useState } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
+import { useAuthStore } from "@/shared/store/authStore";
 
 const MailCode = () => {
   const [code, setCode] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const params = useSearchParams();
+  const router = useRouter();
+  const email = params.get("email") || "";
+  const { isLoading } = useAuthStore();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError(null);
 
     if (code.length !== 4) {
-      console.log("Код должен быть из 4 цифр");
+      setError("Код должен быть из 4 цифр");
       return;
     }
 
-    console.log("Mail code:", code);
+    const encodedEmail = encodeURIComponent(email);
+    router.push(`/reg-password?email=${encodedEmail}&code=${code}`);
   };
 
   return (
@@ -35,8 +44,9 @@ const MailCode = () => {
           action=""
         >
           <OTPInput length={4} value={code} onChange={v => setCode(v)} inputClassName="bg-white" />
-          <Button type="submit" variant={1}>
-            Продолжить
+          {error && <p className="text-red-500 text-sm">{error}</p>}
+          <Button type="submit" variant={1} disabled={isLoading}>
+            {isLoading ? "Проверка..." : "Продолжить"}
           </Button>
         </form>
       </div>

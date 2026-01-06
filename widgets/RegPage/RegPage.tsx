@@ -9,15 +9,15 @@ import yan from "@/shared/assets/auth/yandex.png";
 import person from "@/shared/assets/auth/auth.png";
 import InputForm from "@/shared/ui/InputForm";
 import Button from "@/shared/ui/Button";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Mail from "@/shared/assets/icons/Mail";
 import Phone from "@/shared/assets/icons/Phone";
-import Link from "next/link";
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import InputPhone from "@/shared/ui/InputPhone/ui/InputPhone";
+import { useAuthStore } from "@/shared/store/authStore";
 
 const phoneRegex = /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/;
 
@@ -33,17 +33,17 @@ export default function Register() {
   const params = useSearchParams();
   const router = useRouter();
   const method = params.get("method");
+  const [error, setError] = useState<string | null>(null);
+  const { requestCode, isLoading } = useAuthStore();
 
   useEffect(() => {
     if (!method) {
       router.push("/select-register");
     }
   }, [method, router]);
-  // Определяем текст плейсхолдера
+
   const schema = method === "email" ? emailSchema : phoneSchema;
   type CurrentFormType = z.infer<typeof schema>;
-
-  const placeholder = method === "phone" ? "+7 (___) ___-__-__" : "example@mail.ru";
 
   const {
     control,
@@ -54,9 +54,17 @@ export default function Register() {
     defaultValues: method === "email" ? ({ email: "" } as CurrentFormType) : ({ phone: "" } as CurrentFormType),
   });
 
-  const onSubmit = (data: CurrentFormType) => {
-    console.log("Submitted:", data);
-    router.push("/reg-password");
+  const onSubmit = async (data: CurrentFormType) => {
+    setError(null);
+    try {
+      const type = method === "email" ? "email" : "phone";
+      const value = method === "email" ? (data as any).email : (data as any).phone.replace(/\D/g, "");
+      await requestCode(type, value);
+      const encodedValue = encodeURIComponent(method === "email" ? (data as any).email : (data as any).phone);
+      router.push(`/${method === "email" ? "mail-code" : "phone-code"}?${type}=${encodedValue}`);
+    } catch (err: any) {
+      setError(err.message || "Ошибка отправки кода");
+    }
   };
 
   const handleSelect = (method: string) => {
@@ -89,11 +97,11 @@ export default function Register() {
           />
         )}
 
-        {/* <Link href={"/reg-password"}> */}
-        <Button type="submit" variant={1} className="mt-5">
-          Продолжить
+        {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+
+        <Button type="submit" variant={1} className="mt-5" disabled={isLoading}>
+          {isLoading ? "Отправка..." : "Продолжить"}
         </Button>
-        {/* </Link> */}
       </form>
 
       {/* Соц. вход */}

@@ -28,7 +28,7 @@ sm:py-5 sm:px-8 lg:px-10"
       <div className="flex items-center gap-4">
         <div 
           onClick={openModal}
-          className="flex justify-center gap-2 items-center shadow-2xl w-full max-w-[180px] sm:max-w-[260px] lg:max-w-[304px] border-2 border-[#3831BF] rounded-[10px] p-[8px] bg-[#F5F4FF]"
+          className="flex justify-center gap-2 items-center shadow-2xl w-full max-w-[180px] sm:max-w-[260px] lg:max-w-[404px] border-2 border-[#3831BF] rounded-[10px] p-[8px] bg-[#F5F4FF]"
         >
           <Gift />
           <span className="text-[#3831BF] text-[14px] sm:text-[20px] lg:text-[24px] font-semibold leading-[100%] tracking-[-0.05em] text-center">

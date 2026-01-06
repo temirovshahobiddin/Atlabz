@@ -5,19 +5,28 @@ import phone from "@/shared/assets/auth/phone.png";
 import Button from "@/shared/ui/Button";
 import OTPInput from "@/shared/ui/OTPInput";
 import { useState } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
+import { useAuthStore } from "@/shared/store/authStore";
 
 const PhoneCode = () => {
   const [code, setCode] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const params = useSearchParams();
+  const router = useRouter();
+  const phoneNumber = params.get("phone") || "";
+  const { isLoading } = useAuthStore();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError(null);
 
     if (code.length !== 4) {
-      console.log("Код должен быть из 4 цифр");
+      setError("Код должен быть из 4 цифр");
       return;
     }
 
-    console.log("Phone code:", code);
+    const encodedPhone = encodeURIComponent(phoneNumber);
+    router.push(`/reg-password?phone=${encodedPhone}&code=${code}`);
   };
 
   return (
@@ -35,8 +44,9 @@ const PhoneCode = () => {
           action=""
         >
           <OTPInput length={4} value={code} onChange={v => setCode(v)} inputClassName="bg-white" />
-          <Button type="submit" variant={1}>
-            Продолжить
+          {error && <p className="text-red-500 text-sm">{error}</p>}
+          <Button type="submit" variant={1} disabled={isLoading}>
+            {isLoading ? "Проверка..." : "Продолжить"}
           </Button>
         </form>
       </div>

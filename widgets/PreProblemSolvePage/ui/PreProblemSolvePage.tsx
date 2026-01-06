@@ -29,9 +29,15 @@ const awards = [
 const PreProblemSolvePage = () => {
   const router = useRouter();
 
-  const handleProblemSolveClick = () => {
+  const handleProblemSolveClick = (hasFile: boolean) => {
     router.push("/working");
-    setTimeout(() => router.push("/premium/condition-solve"), 12000);
+    if (hasFile) {
+      // Если загружен файл - на страницу проверки условия
+      setTimeout(() => router.push("/premium/condition-solve"), 12000);
+    } else {
+      // Если только текст - сразу в chat-ai
+      setTimeout(() => router.push("/chat-ai"), 12000);
+    }
   };
   return (
     <section>
@@ -46,7 +52,7 @@ const PreProblemSolvePage = () => {
       </div>
 
       <div className="flex flex-col lg:flex-row gap-[15px] w-full">
-        <Textarea onClick={handleProblemSolveClick} placeholder="Введи или прикрепи задачу (текст, фото, файл)" />
+        <Textarea onClick={(hasFile) => handleProblemSolveClick(hasFile)} placeholder="Введи или прикрепи задачу (текст, фото, файл)" />
 
         <div className="hidden lg:flex flex-col gap-[29px] bg-white rounded-[20px] py-10 px-[30px]">
           <div className="flex gap-2.5 items-center ">

@@ -114,3 +114,10 @@ a {
 a:hover {
   opacity: 0.8;
 }
+
+/* Auto-resize textarea */
+.auto-resize-textarea {
+  field-sizing: content;
+  min-height: 52px;
+  max-height: none;
+}

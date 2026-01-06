@@ -1,19 +1,28 @@
 "use client";
 
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
+import React, { useState } from "react";
 
 import yan from "@/shared/assets/auth/yandex.png";
 import person from "@/shared/assets/auth/auth.png";
 import Button from "@/shared/ui/Button";
 import InputForm from "@/shared/ui/InputForm";
-import Link from "next/link";
+import { useSearchParams, useRouter } from "next/navigation";
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { passwordSchema, PasswordFormType } from "./schema";
+import { useAuthStore } from "@/shared/store/authStore";
 
 const RegPassword = () => {
+  const params = useSearchParams();
+  const router = useRouter();
+  const email = params.get("email");
+  const phone = params.get("phone");
+  const code = params.get("code") || "";
+  const [error, setError] = useState<string | null>(null);
+  const { verifyCode, isLoading, pendingPayment } = useAuthStore();
+
   const {
     control,
     handleSubmit,
@@ -26,8 +35,21 @@ const RegPassword = () => {
     },
   });
 
-  const onSubmit = (data: PasswordFormType) => {
-    console.log("Submitted:", data);
+  const onSubmit = async (data: PasswordFormType) => {
+    setError(null);
+    try {
+      const type = email ? "email" : "phone";
+      const value = email || (phone ? phone.replace(/\D/g, "") : "");
+      await verifyCode(type, value, code, data.password);
+      if (pendingPayment) {
+        router.push("/premium/choose-type-work");
+      } else {
+        router.push("/profile/cabinet");
+      }
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "Ошибка регистрации";
+      setError(message);
+    }
   };
   return (
     <div className="flex flex-col justify-center max-w-[892px] mx-auto">
@@ -51,11 +73,11 @@ const RegPassword = () => {
           name={"confirmPassword"}
         />
 
-        {/* <Link href={"/profile/cabinet"}> */}
-        <Button type="submit" variant={1} className="mt-5">
-          Продолжить
+        {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+
+        <Button type="submit" variant={1} className="mt-5" disabled={isLoading}>
+          {isLoading ? "Регистрация..." : "Продолжить"}
         </Button>
-        {/* </Link> */}
       </form>
 
       {/* Соц. вход */}

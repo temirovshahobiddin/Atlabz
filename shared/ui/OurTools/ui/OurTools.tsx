@@ -15,7 +15,7 @@ const OurTools = () => {
         className="flex gap-1  justify-between  items-centerw-full cursor-pointer select-none"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <div className="flex  items-center gap-2.5 text-[16px] 2xl:text-[20px] leading-[80%]">
+        <div className="flex  items-center gap-2.5 text-[14px] xl:text-[15px] 2xl:text-[18px] min-[1700px]:text-[20px] leading-[80%]">
           <span>Инструменты</span>
         </div>
 

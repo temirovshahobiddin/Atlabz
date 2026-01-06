@@ -1,7 +1,7 @@
 "use client";
 
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
+import React, { useState } from "react";
 
 import task from "@/shared/assets/cabinet/task.png";
 import Button from "@/shared/ui/Button";
@@ -28,13 +28,28 @@ const awards = [
   },
 ];
 
+const defaultText = `На рёбрах AB и BC треугольной пирамиды ABCD отмечены точки M и N соответственно, причём AM:MB=CN:NB=1:2
+. Точки P и Q - середины рёбер DA и DC соответственно. Докажите, что точки P , Q , M и N Лежат в одной
+плоскости. Найдите, в каком отношении эта плоскость делит объём пирамиды`;
+
 const CheckConditionSolvePage = () => {
   const router = useRouter();
+  const [conditionText, setConditionText] = useState(defaultText);
+  const [isEditing, setIsEditing] = useState(false);
 
   const handleConditionSolveClick = () => {
-    router.push("/soon");
+    router.push("/working");
     setTimeout(() => router.push("/chat-ai"), 12000);
   };
+
+  const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setConditionText(e.target.value);
+  };
+
+  const handleEditToggle = () => {
+    setIsEditing(!isEditing);
+  };
+
   return (
     <section>
       <div className="flex flex-col gap-[15px] max-w-[893px] w-full mb-[30px]">
@@ -50,11 +65,26 @@ const CheckConditionSolvePage = () => {
               <img src={task.src} alt="" />
             </div>
             <div className="bg-white  text-[20px] lg:max-w-[892px] w-full rounded-[20px] p-[30px] flex flex-col gap-2.5">
-              <div className="bg-[#E7EBEE] h-full text-[16px] leading-[200%] tracking-[-0.05em] custom-scroll py-5 px-[15px] rounded-[10px] overflow-y-auto">
-                На рёбрах AB и BC треугольной пирамиды ABCD отмечены точки M и N соответственно, причём AM:MB=CN:NB=1:2
-                . Точки P и Q - середины рёбер DA и DC соответственно. Докажите, что точки P , Q , M и N Лежат в одной
-                плоскости. Найдите, в каком отношении эта плоскость делит объём пирамиды
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-[14px] text-[#1D1D1D99]">Условие задачи</span>
+                <button
+                  onClick={handleEditToggle}
+                  className="text-[14px] text-[#3831BF] hover:underline cursor-pointer"
+                >
+                  {isEditing ? "Сохранить" : "Редактировать"}
+                </button>
               </div>
+              {isEditing ? (
+                <textarea
+                  value={conditionText}
+                  onChange={handleTextChange}
+                  className="bg-[#E7EBEE] h-full min-h-[200px] text-[16px] leading-[200%] tracking-[-0.05em] custom-scroll py-5 px-[15px] rounded-[10px] overflow-y-auto resize-none outline-none focus:ring-2 focus:ring-[#3831BF]"
+                />
+              ) : (
+                <div className="bg-[#E7EBEE] h-full text-[16px] leading-[200%] tracking-[-0.05em] custom-scroll py-5 px-[15px] rounded-[10px] overflow-y-auto">
+                  {conditionText}
+                </div>
+              )}
 
               <Button onClick={handleConditionSolveClick} className="block lg:hidden">
                 Продолжить

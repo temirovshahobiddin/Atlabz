@@ -19,6 +19,7 @@ import { useState } from "react";
 
 const SolvingProblemsPage = () => {
   const [isOpenBonus, setIsOpenBonus] = useState(false);
+
   return (
     <div>
       <SubsHero

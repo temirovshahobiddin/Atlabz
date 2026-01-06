@@ -2,11 +2,11 @@ import Camera from "@/shared/assets/icons/Camera";
 import FileSend from "@/shared/assets/icons/FileSend";
 import ImgSend from "@/shared/assets/icons/ImgSend";
 
-import React from "react";
+import React, { useRef } from "react";
 
 interface ChatSendProps {
   value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   onSubmit: (e: React.FormEvent) => void;
   onAttach?: (files: FileList) => void;
   placeholder?: string;
@@ -21,7 +21,7 @@ const ChatSend: React.FC<ChatSendProps> = ({
   placeholder = "Введите сообщение...",
   className = "",
 }) => {
-  const fileInputRef = React.useRef<HTMLInputElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleAttachClick = () => {
     fileInputRef.current?.click();
@@ -30,8 +30,14 @@ const ChatSend: React.FC<ChatSendProps> = ({
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0 && onAttach) {
       onAttach(e.target.files);
-      // Сбрасываем значение input, чтобы можно было прикрепить тот же файл снова
       e.target.value = "";
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      onSubmit(e as unknown as React.FormEvent);
     }
   };
 
@@ -40,12 +46,13 @@ const ChatSend: React.FC<ChatSendProps> = ({
       onSubmit={onSubmit}
       className={`bg-white flex-col rounded-[20px] p-[30px] shadow-lg flex items-center gap-4 ${className}`}
     >
-      <input
-        type="text"
+      <textarea
         value={value}
         onChange={onChange}
+        onKeyDown={handleKeyDown}
         placeholder={placeholder}
-        className="flex-1 py-3 px-4 w-full  rounded-xl focus:outline-none focus:ring-2 focus:ring-[#3831BF]"
+        rows={1}
+        className="w-full py-3 px-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#3831BF] resize-none leading-6 text-base auto-resize-textarea"
       />
       <div className="flex justify-between  w-full">
         <div className="flex items-center gap-10 border border-[#3831BF] p-2 rounded-[10px]">
