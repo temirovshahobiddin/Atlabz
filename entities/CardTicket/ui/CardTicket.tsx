@@ -37,7 +37,7 @@ const CardTicket = ({ month, discount, price, savings, bg = "#ffff", selected, o
           <p className="line-through text-[#1D1D1D]/50 text-[20px] font-medium">{discount} руб. в месяц</p>
           <p className="text-black font-bold text-[64px] max-md:text-[48px]">{price}₽</p>
         </div>
-        <CheckBoxCircle checked={selected} size={64} />
+        <CheckBoxCircle checked={!!selected} size={64} clickable={false} />
       </div>
     </div>
   );

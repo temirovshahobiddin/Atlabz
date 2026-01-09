@@ -24,16 +24,22 @@ const SubsHero = ({
     const isPremium = localStorage.getItem("premium") === "true";
     router.push("/working");
     
-    if (hasFile) {
-      // Если загружен файл - проверяем premium
-      if (isPremium) {
-        setTimeout(() => router.push("/premium/condition-solve"), 12000);
-      } else {
-        setTimeout(() => router.push("/non-premium/full-access"), 12000);
-      }
+    if (typeWorkPage) {
+      // Для написания работ - всегда на план работы (check-content)
+      setTimeout(() => router.push("/premium/check-content"), 12000);
     } else {
-      // Если только текст - сразу в chat-ai
-      setTimeout(() => router.push("/chat-ai"), 12000);
+      // Для решения задач
+      if (hasFile) {
+        // Если загружен файл - проверяем premium
+        if (isPremium) {
+          setTimeout(() => router.push("/premium/condition-solve"), 12000);
+        } else {
+          setTimeout(() => router.push("/non-premium/full-access"), 12000);
+        }
+      } else {
+        // Если только текст - сразу в chat-ai
+        setTimeout(() => router.push("/chat-ai"), 12000);
+      }
     }
   };
   return (

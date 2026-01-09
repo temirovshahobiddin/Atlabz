@@ -32,7 +32,7 @@ const TicketCard = ({ item, selected, onSelect }: TicketCardProps) => {
       </div>
 
       <div className="flex items-center justify-between">
-        <CheckBoxCircle size={30} checked={selected} />
+        <CheckBoxCircle size={30} checked={!!selected} clickable={false} />
         <div className="flex items-end gap-4">
           <p className="line-through text-[16px] mb-2.5 text-[#545454]">{item.discount}₽</p>
           <p className="text-[48px] font-bold">{item.price}₽</p>

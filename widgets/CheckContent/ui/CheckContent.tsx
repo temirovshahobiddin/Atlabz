@@ -12,8 +12,16 @@ const CheckContent = () => {
   const router = useRouter();
 
   const handleCheckContentClick = () => {
-    router.push("/soon");
-    setTimeout(() => router.push("/premium/check-sources"), 12000);
+    const isPremium = localStorage.getItem("premium") === "true";
+    router.push("/working");
+    
+    if (isPremium) {
+      // С премиумом - сразу на источники
+      setTimeout(() => router.push("/premium/check-sources"), 12000);
+    } else {
+      // Без премиума - на тарифы (только combo и works для написания работ)
+      setTimeout(() => router.push("/non-premium/full-access?flow=works"), 12000);
+    }
   };
   return (
     <section>

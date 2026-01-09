@@ -17,7 +17,7 @@ const CardsBlock = ({ title, cards }: { title: string; cards: CardItem[] }) => {
         {title}
       </h3>
 
-      <div className="grid grid-cols-4 gap-[15px] max-2xl:grid-cols-3 max-xl:grid-cols-2 max-xl:gap-2.5 max-sm:grid-cols-1 max-sm:m-auto max-sm:gap-2">
+      <div className="grid grid-cols-4 gap-[15px] max-2xl:grid-cols-3 max-xl:grid-cols-2 max-lg:gap-3 max-xl:gap-2.5 max-sm:grid-cols-1 max-sm:m-auto max-sm:gap-2">
         {cards.map((card, index) => (
           <div key={index} className="mb-[30px] max-xl:mb-0">
             <CardCabinetServices

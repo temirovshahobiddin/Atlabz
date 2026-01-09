@@ -38,6 +38,13 @@ body {
   text-transform: uppercase;
 }
 
+@media (max-width: 1280px) {
+  .title-1 {
+    font-size: 48px;
+    letter-spacing: -0.03em;
+  }
+}
+
 @media (max-width: 1064px) {
   .title-1 {
     font-size: 40px;

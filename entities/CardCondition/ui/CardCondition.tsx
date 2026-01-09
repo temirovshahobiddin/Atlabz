@@ -26,7 +26,7 @@ const CardCondition = ({ title, img, decision }: AccordionProps) => {
     <div className="flex flex-col xl:flex-row gap-[15px] w-full">
       <div
         onClick={() => setIsOpen(!isOpen)}
-        className="flex flex-col gap-[18px] xl:max-w-[893px] items-center w-full bg-white p-5 rounded-[20px] cursor-pointer select-none"
+        className="flex flex-col gap-[18px] xl:max-w-[893px] xl:min-w-[893px] items-center w-full bg-white p-5 rounded-[20px] cursor-pointer select-none shrink-0"
       >
         <div className="flex justify-between w-full">
           <span className="text-[20px] lg:text-[36px] font-bold uppercase  leading-[100%] tracking-[-0.05em]">
@@ -44,7 +44,7 @@ const CardCondition = ({ title, img, decision }: AccordionProps) => {
       </div>
 
       <div
-        className="overflow-hidden xl:max-w-[893px] w-full transition-[max-height,opacity,margin] duration-500 ease-in-out"
+        className="overflow-hidden xl:max-w-[893px] xl:min-w-[893px] w-full transition-[max-height,opacity,margin] duration-500 ease-in-out shrink-0"
         style={{
           maxHeight: height,
           opacity: isOpen ? 1 : 0,

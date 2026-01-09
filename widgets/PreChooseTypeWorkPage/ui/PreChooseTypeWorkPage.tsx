@@ -33,6 +33,12 @@ const PreChooseTypeWorkPage = () => {
   const [typeWork, setTypeWork] = useState<boolean>(false);
   const router = useRouter();
 
+  const handleSubmit = () => {
+    // Премиум пользователь - сразу на план работы
+    router.push("/working");
+    setTimeout(() => router.push("/premium/check-content"), 12000);
+  };
+
   return (
     <section>
       <NavBarServices />
@@ -64,8 +70,8 @@ const PreChooseTypeWorkPage = () => {
 
       <div className="flex flex-col lg:flex-row gap-[15px] w-full">
         <Textarea
-          onClick={() => router.push("/premium/check-content")}
-          placeholder="Введи или прикрепи задачу (текст, фото, файл)"
+          onSubmitClick={() => handleSubmit()}
+          placeholder="Введи тему работы"
         />
 
         <div className="hidden lg:flex flex-col gap-[29px] bg-white rounded-[20px] py-10 px-[30px]">

@@ -93,10 +93,10 @@ export default function SmartHelpSlider() {
   return (
     <div className="flex justify-between sm:mt-[60px] lg:mt-[150px] max-xl:flex-col max-xl:items-center">
       <div className="max-md:flex max-md:flex-col max-md:gap-[10px] max-sm:gap-[8px]">
-        <h4 className="max-w-[900px] w-full text-(--blue) font-bold text-[28px] sm:text-[40px] xl:text-[64px] uppercase leading-[100%]">
+        <h4 className="max-w-[900px] w-full text-(--blue) font-bold text-[28px] sm:text-[40px] lg:text-[48px] xl:text-[64px] uppercase leading-[100%]">
           Умный помощник на каждый день
         </h4>
-        <p className="max-w-[900px] w-full text-(--blue)/60 text-[16px] sm:text-[20px] xl:text-[32px] leading-[120%] max-lg:mt-[10px] max-md:text-[20px] max-sm:text-[16px]">
+        <p className="max-w-[900px] w-full text-(--blue)/60 text-[16px] sm:text-[20px] lg:text-[24px] xl:text-[32px] leading-[120%] max-lg:mt-[10px] max-md:text-[20px] max-sm:text-[16px]">
           Развитие, финансы, правильные решения и новые горизонты — наш AI превращает сложное в простое, давая ответы за
           секунды.
         </p>

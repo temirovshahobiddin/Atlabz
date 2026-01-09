@@ -49,7 +49,7 @@ const TicketCard = ({ label, price, pricePerUnit, savings, selected, onSelect }:
           <p className="text-[#1D1D1D]/50 text-[20px] font-medium">{pricePerUnit}</p>
           <p className="text-black font-bold text-[64px] max-md:text-[48px]">{price}₽</p>
         </div>
-        <CheckBoxCircle checked={selected} size={64} />
+        <CheckBoxCircle checked={!!selected} size={64} clickable={false} />
       </div>
     </div>
   );
@@ -110,9 +110,16 @@ const AddonItem = ({ title, price, description, enabled, expanded, onToggle, onE
   );
 };
 
-const SliderLabs = () => {
+const SliderLabs = ({ filterTabs }: { filterTabs?: string[] }) => {
+  // Фильтруем табы если передан filterTabs
+  const filteredSubTabs = filterTabs 
+    ? SUB_TABS.filter(tab => filterTabs.includes(tab.id))
+    : SUB_TABS;
+  
   const [activeTab, setActiveTab] = useState("edu");
-  const [activeSubTab, setActiveSubTab] = useState<SubTabKey>("works");
+  const [activeSubTab, setActiveSubTab] = useState<SubTabKey>(
+    filterTabs ? (filterTabs[0] as SubTabKey) : "works"
+  );
   const [isOpenBonus, setIsOpenBonus] = useState(false);
   const [freeTasksChecked, setFreeTasksChecked] = useState(true);
   const [freeContentChecked, setFreeContentChecked] = useState(true);
@@ -248,7 +255,7 @@ const SliderLabs = () => {
         ref={subTabScrollRef}
         className="flex gap-3 mt-[30px] overflow-x-auto scroll-smooth scrollbar-none pb-2"
       >
-        {SUB_TABS.map(subTab => (
+        {filteredSubTabs.map(subTab => (
           <button
             id={"subtab-" + subTab.id}
             key={subTab.id}

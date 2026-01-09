@@ -47,7 +47,7 @@ const Header = () => {
       </Link>
 
       {/* Навигация — скрыта на мобильных */}
-      <nav className="hidden xl:flex gap-4 2xl:gap-6 min-[1700px]:gap-[30px] items-center list-none font-inter text-[14px] xl:text-[15px] 2xl:text-[18px] min-[1700px]:text-[20px] font-medium leading-[16px] tracking-[-1px]">
+      <nav className="hidden lg:flex gap-2 xl:gap-4 2xl:gap-6 min-[1700px]:gap-[30px] items-center list-none font-inter text-[13px] lg:text-[14px] xl:text-[15px] 2xl:text-[18px] min-[1700px]:text-[20px] font-medium leading-[16px] tracking-[-1px]">
         {isProfilePage ? (
           <>
             <li>
@@ -97,21 +97,21 @@ const Header = () => {
 
       {!isProfilePage && (
         <>
-          <div className="hidden xl:flex items-center gap-2.5 shrink-0">
+          <div className="hidden lg:flex items-center gap-2 xl:gap-2.5 shrink-0">
             <Link href={"/select-register"}>
-              <Button className="text-[14px]! 2xl:text-[18px]! h-[52px]! 2xl:h-[60px]! px-5! 2xl:px-6! tracking-[-1px]! whitespace-nowrap" variant={3}>
+              <Button className="text-[12px]! lg:text-[13px]! xl:text-[14px]! 2xl:text-[18px]! h-[44px]! lg:h-[48px]! xl:h-[52px]! 2xl:h-[60px]! px-3! lg:px-4! xl:px-5! 2xl:px-6! tracking-[-1px]! whitespace-nowrap" variant={3}>
                 Зарегистрироваться
               </Button>
             </Link>
             <Link href={"/login"}>
-              <Button variant={1} className="h-[52px]! 2xl:h-[60px]! px-8! 2xl:px-10! text-[14px]! 2xl:text-[18px]! tracking-[-1px]!">Войти</Button>
+              <Button variant={1} className="h-[44px]! lg:h-[48px]! xl:h-[52px]! 2xl:h-[60px]! px-5! lg:px-6! xl:px-8! 2xl:px-10! text-[12px]! lg:text-[13px]! xl:text-[14px]! 2xl:text-[18px]! tracking-[-1px]!">Войти</Button>
             </Link>
           </div>
         </>
       )}
 
       {/* Бургер — виден только на мобильных */}
-      <div className={`flex items-center md:gap-4 ${!isProfilePage && "xl:hidden"} `}>
+      <div className={`flex items-center md:gap-4 ${!isProfilePage && "lg:hidden"} `}>
         {isProfilePage && (
           <div className="flex justify-end items-center  md:gap-4 w-full max-w-[241px]">
             <div className="w-full max-w-[81px] md:max-w-[161px]">
@@ -124,7 +124,7 @@ const Header = () => {
             </div>
           </div>
         )}
-        <button className="xl:hidden z-60" onClick={() => setMenuOpen(!menuOpen)} aria-label="Меню">
+        <button className="lg:hidden z-60" onClick={() => setMenuOpen(!menuOpen)} aria-label="Меню">
           {menuOpen ? (
             <div className="">
               <div className="w-[60px] h-[60px]  hidden sm:flex  items-center justify-center">

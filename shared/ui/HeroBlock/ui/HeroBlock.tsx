@@ -142,7 +142,7 @@ const HeroBlock = ({
         <div className="flex flex-col gap-[15px] w-full">
           <div className="flex justify-between max-lg:flex-col-reverse max-lg:gap-5">
             <h3
-              className="max-w-[718px] lg:max-w-[1100px] w-full text-[32px] sm:text-[40px] xl:text-[64px] font-bold uppercase tracking-[-0.05em]
+              className="max-w-[718px] lg:max-w-[900px] xl:max-w-[1100px] w-full text-[32px] sm:text-[40px] lg:text-[48px] xl:text-[64px] font-bold uppercase tracking-[-0.05em]
  leading-[100%] blue max-md:text-[40px]  max-sm:text-[32px]  max-sm:text-center"
             >
               {title}
@@ -172,15 +172,15 @@ const HeroBlock = ({
             </div>
           </div>
 
-          <div className="xl:max-w-[500px] w-full flex flex-col gap-4 sm:gap-[30px] max-md:max-w-[718px]">
+          <div className="lg:max-w-[500px] xl:max-w-[500px] w-full flex flex-col gap-4 sm:gap-[30px] max-md:max-w-[718px]">
             <p
-              className="text-[24px] xl:text-[32px] leading-[120%] tracking-[-0.05em]
+              className="text-[20px] lg:text-[24px] xl:text-[32px] leading-[120%] tracking-[-0.05em]
  font-medium  max-md:text-[24px] max-sm:hidden"
             >
               {description}
             </p>
             <div 
-              className="xl:hidden flex flex-col items-center w-screen -ml-5 overflow-hidden touch-pan-y"
+              className="lg:hidden flex flex-col items-center w-screen -ml-5 overflow-hidden touch-pan-y"
               onTouchStart={onTouchStart}
               onTouchMove={onTouchMove}
               onTouchEnd={onTouchEnd}
@@ -266,17 +266,15 @@ const HeroBlock = ({
             </div>
           </div>
         </div>
-        <div className="flex flex-col max-xl:hidden">
-          <div className="w-full flex justify-end 2xl:justify-center -mt-[280px]">
-            <div className="relative w-[692px] h-[752px] overflow-hidden">
+        <div className="flex flex-col max-lg:hidden">
+          <div className="w-full flex justify-end 2xl:justify-center -mt-[280px] lg:-mt-[200px] xl:-mt-[280px]">
+            <div className="relative w-[500px] lg:w-[550px] xl:w-[692px] h-[550px] lg:h-[600px] xl:h-[752px] overflow-hidden">
               {carouselSlides.map((slide, index) => (
                 <img
                   key={slide.id}
                   alt=""
                   src={pathname === "/home-problem-solve" ? hero2.src : slide.img}
-                  height={752}
-                  width={692}
-                  className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+                  className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-700 ease-in-out ${
                     index === currentSlide ? 'opacity-100' : 'opacity-0'
                   }`}
                 />
@@ -284,19 +282,19 @@ const HeroBlock = ({
             </div>
           </div>
           <div className="w-full overflow-hidden relative">
-            <div className="flex gap-[15px] h-28">
-              <div className="h-full min-w-[439px] backdrop-blur-[25px] bg-linear-to-r from-white/0 to-white flex items-center justify-center">
-                <span className="text-[40px] font-semibold bg-linear-to-r from-white/0 to-black bg-clip-text text-transparent transition-opacity duration-500">
+            <div className="flex gap-[15px] h-28 lg:h-20 xl:h-28">
+              <div className="h-full min-w-[300px] lg:min-w-[350px] xl:min-w-[439px] backdrop-blur-[25px] bg-linear-to-r from-white/0 to-white flex items-center justify-center">
+                <span className="text-[28px] lg:text-[32px] xl:text-[40px] font-semibold bg-linear-to-r from-white/0 to-black bg-clip-text text-transparent transition-opacity duration-500">
                   {prevSlideData.text}
                 </span>
               </div>
 
-              <div className="h-full min-w-[892px] bg-white flex items-center justify-center text-[40px] font-semibold shrink-0">
+              <div className="h-full min-w-[600px] lg:min-w-[700px] xl:min-w-[892px] bg-white flex items-center justify-center text-[28px] lg:text-[32px] xl:text-[40px] font-semibold shrink-0">
                 <span className="transition-opacity duration-500">{currentSlideData.text}</span>
               </div>
 
-              <div className="h-full min-w-[439px] backdrop-blur-[25px] bg-linear-to-r from-white to-white/0 flex items-center justify-center">
-                <span className="text-[40px] font-semibold bg-linear-to-r from-black to-white/0 bg-clip-text text-transparent transition-opacity duration-500">
+              <div className="h-full min-w-[300px] lg:min-w-[350px] xl:min-w-[439px] backdrop-blur-[25px] bg-linear-to-r from-white to-white/0 flex items-center justify-center">
+                <span className="text-[28px] lg:text-[32px] xl:text-[40px] font-semibold bg-linear-to-r from-black to-white/0 bg-clip-text text-transparent transition-opacity duration-500">
                   {nextSlideData.text}
                 </span>
               </div>

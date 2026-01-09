@@ -64,7 +64,7 @@ const CheckConditionSolvePage = () => {
             <div className="bg-[#E7EBEE] rounded-[20px] flex justify-center items-center  p-5 w-full lg:max-w-[439px]">
               <img src={task.src} alt="" />
             </div>
-            <div className="bg-white  text-[20px] lg:max-w-[892px] w-full rounded-[20px] p-[30px] flex flex-col gap-2.5">
+            <div className="bg-white  text-[20px] lg:min-w-[700px] lg:max-w-[892px] w-full rounded-[20px] p-[30px] flex flex-col gap-2.5">
               <div className="flex justify-between items-center mb-2">
                 <span className="text-[14px] text-[#1D1D1D99]">Условие задачи</span>
                 <button
@@ -78,7 +78,7 @@ const CheckConditionSolvePage = () => {
                 <textarea
                   value={conditionText}
                   onChange={handleTextChange}
-                  className="bg-[#E7EBEE] h-full min-h-[200px] text-[16px] leading-[200%] tracking-[-0.05em] custom-scroll py-5 px-[15px] rounded-[10px] overflow-y-auto resize-none outline-none focus:ring-2 focus:ring-[#3831BF]"
+                  className="w-full max-w-[800px] bg-[#E7EBEE] h-full min-h-[200px] text-[16px] leading-[200%] tracking-[-0.05em] custom-scroll py-5 px-[15px] rounded-[10px] overflow-y-auto resize-none outline-none focus:ring-2 focus:ring-[#3831BF]"
                 />
               ) : (
                 <div className="bg-[#E7EBEE] h-full text-[16px] leading-[200%] tracking-[-0.05em] custom-scroll py-5 px-[15px] rounded-[10px] overflow-y-auto">

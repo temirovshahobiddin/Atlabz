@@ -5,21 +5,27 @@ type CheckboxProps = {
   checked?: boolean;
   onChange?: (value: boolean) => void;
   white?: boolean;
+  clickable?: boolean; // если false, клики проходят к родителю
 };
 
-const CheckBoxCircle = ({ size = 22, checked, white, onChange }: CheckboxProps) => {
+const CheckBoxCircle = ({ size = 22, checked, white, onChange, clickable = true }: CheckboxProps) => {
   return (
-    <label className="inline-flex items-center cursor-pointer">
-      <input type="checkbox" checked={checked} onChange={e => onChange?.(e.target.checked)} className="peer hidden" />
+    <div className={`inline-flex items-center ${clickable ? 'cursor-pointer' : 'pointer-events-none'}`}>
+      <input 
+        type="checkbox" 
+        checked={checked} 
+        onChange={e => onChange?.(e.target.checked)} 
+        className="peer hidden" 
+      />
 
       <span
         style={{ width: size, height: size }}
-        className={`rounded-full border-2 ${white ? "border-white" : "border-[#1D1D1D]"} bg-white
+        className={`rounded-full border-2 ${white ? "border-white" : "border-[#1D1D1D]"} 
           flex items-center justify-center
-          peer-checked:bg-(--blue) ${white ? "peer-checked:border-white" : "peer-checked:border-(--blue)"} 
+          ${checked ? `bg-[#3831bf] ${white ? "border-white" : "border-[#3831bf]"}` : "bg-white"}
           transition`}
       >
-        {size === 64 ? (
+        {checked && (size === 64 ? (
           <svg width="36" height="27" viewBox="0 0 36 27" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M34 2L12 24.0535L2 14.0292"
@@ -39,9 +45,9 @@ const CheckBoxCircle = ({ size = 22, checked, white, onChange }: CheckboxProps) 
               strokeLinejoin="round"
             />
           </svg>
-        )}
+        ))}
       </span>
-    </label>
+    </div>
   );
 };
 

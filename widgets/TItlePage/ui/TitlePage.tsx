@@ -1,12 +1,26 @@
+"use client";
+
 import Button from "@/shared/ui/Button";
 import InputForm from "@/shared/ui/InputForm";
 
 import Image from "next/image";
 
 import titlepage from "@/shared/assets/premium/titlepage.png";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const TitlePage = () => {
+  const router = useRouter();
+
+  const handleContinue = () => {
+    router.push("/working");
+    setTimeout(() => router.push("/chat-ai"), 12000);
+  };
+
+  const handleSkip = () => {
+    router.push("/working");
+    setTimeout(() => router.push("/chat-ai"), 12000);
+  };
+
   return (
     <section>
       <div className="flex flex-col gap-[15px] w-full ">
@@ -31,12 +45,8 @@ const TitlePage = () => {
               <span>Соглашаюсь на обработку персональных данных</span>
             </div>
             <div className="w-full flex flex-col gap-2.5 mt-[30px]">
-              <Link href={"/premium/history-money"}>
-                <Button>Продолжить</Button>
-              </Link>
-              <Link href={"/premium/history-money"}>
-                <Button variant={3}>Пропустить</Button>
-              </Link>
+              <Button type="button" onClick={handleContinue}>Продолжить</Button>
+              <Button type="button" variant={3} onClick={handleSkip}>Пропустить</Button>
             </div>
           </form>
           <div className="bg-white px-[116px] py-6 rounded-[20px] max-h-[254px] max-w-[438px] w-full hidden xl:block">

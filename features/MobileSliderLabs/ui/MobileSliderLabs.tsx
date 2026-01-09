@@ -45,7 +45,7 @@ const MobileTicketCard = ({ label, price, pricePerUnit, savings, selected, onSel
       </div>
 
       <div className="flex items-center justify-between">
-        <CheckBoxCircle size={30} checked={selected} />
+        <CheckBoxCircle size={30} checked={!!selected} clickable={false} />
         <div className="flex flex-col items-end">
           <p className="text-[14px] text-[#545454]">{pricePerUnit}</p>
           <p className="text-[48px] font-bold">{price}₽</p>
@@ -110,7 +110,11 @@ const AddonToggle = ({ title, price, description, enabled, onToggle }: AddonTogg
 
 // Компонент для галочки
 
-const MobileSliderLabs = () => {
+interface MobileSliderLabsProps {
+  filterTabs?: string[];
+}
+
+const MobileSliderLabs = ({ filterTabs }: MobileSliderLabsProps) => {
   const [activeTab, setActiveTab] = useState("edu");
   const [activeSubTab, setActiveSubTab] = useState<SubTabKey>("works");
   const [freeTasksChecked, setFreeTasksChecked] = useState(true);
@@ -195,7 +199,7 @@ const MobileSliderLabs = () => {
 
         {/* ПОД-ТАБЫ */}
         <div className="flex gap-2 mt-4 overflow-x-auto scroll-smooth scrollbar-none pb-2">
-          {SUB_TABS.map(subTab => (
+          {(filterTabs ? SUB_TABS.filter(tab => filterTabs.includes(tab.id)) : SUB_TABS).map(subTab => (
             <button
               key={subTab.id}
               onClick={() => handleSubTabChange(subTab.id as SubTabKey)}
