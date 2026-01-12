@@ -19,10 +19,10 @@ const HowItWorks = ({ slides }: { slides: Slide[] }) => {
   return (
     <div id="howitworks" className="flex flex-col gap-3 sm:gap-5 lg:gap-[60px] mt-[60px] xl:mt-[100px] overflow-hidden">
       <div className="flex flex-col gap-[15px]">
-        <h2 className="text-(--blue) text-[32px] sm:text-[40px] lg:text-[48px] xl:text-[64px] leading-[100%] font-bold uppercase tracking-[-0.05em] max-md:text-[40px] max-sm:text-[28px]">
+        <h2 className="text-(--blue) text-[28px] sm:text-[40px] lg:text-[48px] xl:text-[64px] leading-[100%] font-bold uppercase tracking-[-0.05em]">
           Как это работает
         </h2>
-        <p className="text-(--blue)/60 text-[16px] sm:text-[20px] lg:text-[24px] xl:text-[32px] leading-[120%] max-md:text-[20px] max-sm:text-[16px]">
+        <p className="text-(--blue)/60 text-[16px] sm:text-[20px] lg:text-[24px] xl:text-[32px] leading-[120%]">
           От запроса до готового решения — всего 30 секунд
         </p>
       </div>

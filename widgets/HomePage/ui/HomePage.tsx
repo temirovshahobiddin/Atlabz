@@ -83,22 +83,22 @@ const HomePage = () => {
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-[15px] mt-[60px] lg:mt-[100px]">
         <div className="bg-(--blue) text-white lg:max-w-[439px] 2xl:max-w-[439px] w-full h-40 sm:h-[200px] lg:h-[250px] xl:h-[300px] rounded-[40px] flex flex-col items-center justify-center">
-          <h5 className="text-[24px] sm:text-[40px] lg:text-[48px] xl:text-[64px] font-bold leading-[100%]">50 000+</h5>
-          <p className="text-[14px] sm:text-[18px] lg:text-[20px] ">пользователей</p>
+          <h5 className="text-[28px] sm:text-[40px] lg:text-[48px] xl:text-[64px] font-bold leading-[100%]">50 000+</h5>
+          <p className="text-[14px] sm:text-[18px] lg:text-[20px]">пользователей</p>
         </div>
         <div className="bg-white text-black lg:max-w-[439px] 2xl:max-w-[439px] w-full  h-40 sm:h-[200px] lg:h-[250px] xl:h-[300px] rounded-full flex flex-col items-center justify-center">
-          <h5 className="text-[24px] sm:text-[40px] lg:text-[48px] xl:text-[64px] font-bold leading-[100%]">97%</h5>
-          <p className="text-[14px] sm:text-[18px] lg:text-[20px]  w-full max-w-[142px] sm:max-w-[257px] text-center">
+          <h5 className="text-[28px] sm:text-[40px] lg:text-[48px] xl:text-[64px] font-bold leading-[100%]">97%</h5>
+          <p className="text-[14px] sm:text-[18px] lg:text-[20px] w-full max-w-[142px] sm:max-w-[257px] text-center">
             клиентов возвращаются повторно
           </p>
         </div>
         <div className="bg-black text-white lg:max-w-[439px] 2xl:max-w-[439px] w-full h-40 sm:h-[200px] lg:h-[250px] xl:h-[300px] rounded-r-full flex flex-col items-center justify-center">
-          <h5 className="text-[24px] sm:text-[40px] lg:text-[48px] xl:text-[64px] font-bold leading-[100%]">1000+</h5>
-          <p className="text-[14px] sm:text-[18px] lg:text-[20px] ">учебных работ</p>
+          <h5 className="text-[28px] sm:text-[40px] lg:text-[48px] xl:text-[64px] font-bold leading-[100%]">1000+</h5>
+          <p className="text-[14px] sm:text-[18px] lg:text-[20px]">учебных работ</p>
         </div>
         <div className="bg-[#E7EBEE] text-(--blue) lg:max-w-[439px] 2xl:max-w-[439px] w-full h-40 sm:h-[200px] lg:h-[250px] xl:h-[300px] rounded-tl-[1000px] rounded-t-[40px] rounded-b-[40px] flex flex-col items-center justify-center">
-          <h5 className="text-[24px] sm:text-[40px] lg:text-[48px] xl:text-[64px] font-bold leading-[100%] uppercase">1 млн +</h5>
-          <p className="text-[14px] sm:text-[18px] lg:text-[20px] ">решенных задач</p>
+          <h5 className="text-[28px] sm:text-[40px] lg:text-[48px] xl:text-[64px] font-bold leading-[100%] uppercase">1 млн +</h5>
+          <p className="text-[14px] sm:text-[18px] lg:text-[20px]">решенных задач</p>
         </div>
       </div>
 
@@ -148,75 +148,75 @@ const HomePage = () => {
           <Button variant={1}>Открыть в Telegram</Button>
         </div>
 
-        <div className="mt-[60px] lg:mt-[150px]">
-          <h3 className="text-(--blue) mb-[15px] text-[28px] sm:text-[40px] lg:text-[48px] xl:text-[64px] leading-[100%] tracking-[-0.05em] font-bold uppercase max-md:text-[40px] max-sm:text-[28px]">
+        <div className="mt-[60px] lg:mt-[100px]">
+          <h3 className="text-(--blue) mb-[15px] text-[28px] sm:text-[40px] lg:text-[48px] xl:text-[64px] leading-[100%] tracking-[-0.05em] font-bold uppercase">
             О продукте
           </h3>
           <div className="flex justify-center my-2.5 py-3.5 bg-white sm:hidden ">
             <Logo />
           </div>
-          <div className="w-full sm:bg-white rounded-[40px] sm:p-[30px] text-[40px] font-medium leading-[120%] tracking-[-0.05em] flex flex-col gap-[16px]">
-            <p className="text-[18px] sm:text-[24px] lg:text-[28px] xl:text-[32px] font-medium leading-[120%] tracking-[-0.05em]">
-              <span className="text-(--blue) text-[20px] sm:text-[26px] lg:text-[30px] xl:text-[32px] font-bold">Это</span> не просто AI, а
+          <div className="w-full sm:bg-white rounded-[40px] sm:p-[30px] font-medium leading-[120%] tracking-[-0.05em] flex flex-col gap-[16px]">
+            <p className="text-[16px] sm:text-[20px] lg:text-[24px] xl:text-[28px] font-medium leading-[130%] tracking-[-0.03em]">
+              <span className="text-(--blue) text-[18px] sm:text-[22px] lg:text-[26px] xl:text-[28px] font-bold">Это</span> не просто AI, а
               персональные онлайн-сервисы, которые помогают решать реальные задачи. Наши инструменты помогают студентам
               и школьникам решать задачи, писать рефераты, эссе и курсовые, готовиться к экзаменам.
             </p>
-            <p className="text-[18px] sm:text-[24px] lg:text-[28px] xl:text-[32px] font-medium leading-[120%] tracking-[-0.05em]">
+            <p className="text-[16px] sm:text-[20px] lg:text-[24px] xl:text-[28px] font-medium leading-[130%] tracking-[-0.03em]">
               AtLabs — это{" "}
-              <span className="text-(--blue) text-[20px] sm:text-[26px] lg:text-[30px] xl:text-[32px] font-bold">Персональный комплекс сервисов</span>
+              <span className="text-(--blue) text-[18px] sm:text-[22px] lg:text-[26px] xl:text-[28px] font-bold">Персональный комплекс сервисов</span>
               , который экономит ваше время, помогает принимать решения и двигаться вперёд.
             </p>
-            <p className="text-[18px] sm:text-[24px] lg:text-[28px] xl:text-[32px] font-medium leading-[120%] tracking-[-0.05em]">
-              <span className="text-(--blue) text-[20px] sm:text-[26px] lg:text-[30px] xl:text-[32px] font-bold">Личный финансовый помощник</span>{" "}
+            <p className="text-[16px] sm:text-[20px] lg:text-[24px] xl:text-[28px] font-medium leading-[130%] tracking-[-0.03em]">
+              <span className="text-(--blue) text-[18px] sm:text-[22px] lg:text-[26px] xl:text-[28px] font-bold">Личный финансовый помощник</span>{" "}
               подскажет, как планировать бюджет, распределять расходы и сделать первые инвестиции. Коуч по развитию
               поможет выстроить план развития, проведет карьерную консультацию, поделится полезными материалами.
             </p>
-            <p className="text-[18px] sm:text-[24px] lg:text-[28px] xl:text-[32px] font-medium leading-[120%] tracking-[-0.05em]">
-              <span className="text-(--blue) text-[20px] sm:text-[26px] lg:text-[30px] xl:text-[32px] font-bold">ИИ Психолог</span> поможет заглянуть
+            <p className="text-[16px] sm:text-[20px] lg:text-[24px] xl:text-[28px] font-medium leading-[130%] tracking-[-0.03em]">
+              <span className="text-(--blue) text-[18px] sm:text-[22px] lg:text-[26px] xl:text-[28px] font-bold">ИИ Психолог</span> поможет заглянуть
               вглубь себя, проанализировать ситуацию, посмотреть с другого ракурса.{" "}
             </p>
           </div>
         </div>
-        <div className="mt-[60px] lg:mt-[130px] flex flex-col gap-[30px] lg:gap-[72px]">
+        <div className="mt-[60px] lg:mt-[100px] flex flex-col gap-[20px] lg:gap-[40px]">
           <h3 className="text-(--blue) text-[28px] sm:text-[40px] lg:text-[48px] xl:text-[64px] font-bold uppercase">
             Арсенал AtLabs:
           </h3>
-          <div className="grid grid-cols-2 gap-[15px]">
-            <div className="bg-white rounded-[10px] min-h-9 sm:min-h-[90px] px-5 flex items-center text-[24px] lg:text-[28px] xl:text-[36px] font-semibold uppercase max-lg:text-[28px] max-md:text-[16px] leading-[100%] tracking-[-0.05em] max-sm:text-[14px]">
+          <div className="grid grid-cols-2 gap-[10px] sm:gap-[15px]">
+            <div className="bg-white rounded-[10px] min-h-9 sm:min-h-[70px] lg:min-h-[80px] px-4 sm:px-5 flex items-center text-[14px] sm:text-[20px] lg:text-[24px] xl:text-[28px] font-semibold uppercase leading-[100%] tracking-[-0.03em]">
               Лаборатория
             </div>
-            <div className="bg-white rounded-[10px] min-h-9 sm:min-h-[90px] px-5 flex items-center text-[24px] lg:text-[28px] xl:text-[36px] font-semibold uppercase max-lg:text-[28px] max-md:text-[16px] leading-[100%] tracking-[-0.05em] max-sm:text-[14px]">
+            <div className="bg-white rounded-[10px] min-h-9 sm:min-h-[70px] lg:min-h-[80px] px-4 sm:px-5 flex items-center text-[14px] sm:text-[20px] lg:text-[24px] xl:text-[28px] font-semibold uppercase leading-[100%] tracking-[-0.03em]">
               Что умеет
             </div>
-            <div className="bg-white rounded-[10px] min-h-[90px] px-5 flex items-center text-[22px] lg:text-[26px] xl:text-[32px] font-medium py-5 max-lg:text-[28px] max-md:text-[16px]  leading-[100%] tracking-[-0.05em] max-sm:text-[14px]">
+            <div className="bg-white rounded-[10px] min-h-[60px] sm:min-h-[80px] px-4 sm:px-5 flex items-center text-[14px] sm:text-[18px] lg:text-[22px] xl:text-[26px] font-medium py-4 leading-[110%] tracking-[-0.03em]">
               Лаборатория обучения
             </div>
-            <div className="bg-white rounded-[10px] min-h-[90px] px-5 flex items-center text-[22px] lg:text-[26px] xl:text-[32px] font-medium py-5 max-lg:text-[28px] max-md:text-[16px] leading-[100%] tracking-[-0.05em] max-sm:text-[14px]">
+            <div className="bg-white rounded-[10px] min-h-[60px] sm:min-h-[80px] px-4 sm:px-5 flex items-center text-[14px] sm:text-[18px] lg:text-[22px] xl:text-[26px] font-medium py-4 leading-[110%] tracking-[-0.03em]">
               Персональная помощь с решением задач, контрольных и тестов, написание работ (рефераты, эссе, курсовые).
             </div>
-            <div className="bg-white rounded-[10px] min-h-[90px] px-5 flex items-center text-[22px] lg:text-[26px] xl:text-[32px] font-medium py-5 max-lg:text-[28px] max-md:text-[16px] leading-[100%] tracking-[-0.05em] max-sm:text-[14px]">
+            <div className="bg-white rounded-[10px] min-h-[60px] sm:min-h-[80px] px-4 sm:px-5 flex items-center text-[14px] sm:text-[18px] lg:text-[22px] xl:text-[26px] font-medium py-4 leading-[110%] tracking-[-0.03em]">
               Лаборатория финансов
             </div>
-            <div className="bg-white rounded-[10px] min-h-[90px] px-5 flex items-center text-[22px] lg:text-[26px] xl:text-[22px] lg:text-[26px] xl:text-[32px] font-medium py-5 max-lg:text-[28px] max-md:text-[16px] leading-[100%] tracking-[-0.05em] max-sm:text-[14px]">
+            <div className="bg-white rounded-[10px] min-h-[60px] sm:min-h-[80px] px-4 sm:px-5 flex items-center text-[14px] sm:text-[18px] lg:text-[22px] xl:text-[26px] font-medium py-4 leading-[110%] tracking-[-0.03em]">
               Личный финансовый советник: анализ бюджета, планирование расходов, советы по накоплениям и инвестициям.
             </div>
-            <div className="bg-white rounded-[10px] min-h-[90px] px-5 flex items-center text-[22px] lg:text-[26px] xl:text-[32px] font-medium py-5 max-lg:text-[28px] max-md:text-[16px] leading-[100%] tracking-[-0.05em] max-sm:text-[14px]">
+            <div className="bg-white rounded-[10px] min-h-[60px] sm:min-h-[80px] px-4 sm:px-5 flex items-center text-[14px] sm:text-[18px] lg:text-[22px] xl:text-[26px] font-medium py-4 leading-[110%] tracking-[-0.03em]">
               Лаборатория развития
             </div>
-            <div className="bg-white rounded-[10px] min-h-[90px] px-5 flex items-center text-[22px] lg:text-[26px] xl:text-[32px] font-medium py-5 max-lg:text-[28px] max-md:text-[16px] leading-[100%] tracking-[-0.05em] max-sm:text-[14px]">
+            <div className="bg-white rounded-[10px] min-h-[60px] sm:min-h-[80px] px-4 sm:px-5 flex items-center text-[14px] sm:text-[18px] lg:text-[22px] xl:text-[26px] font-medium py-4 leading-[110%] tracking-[-0.03em]">
               Персональные стратегии роста, карьерные консультации, тесты и планы развития.
             </div>
-            <div className="bg-white rounded-[10px] min-h-[90px] px-5 flex items-center text-[22px] lg:text-[26px] xl:text-[32px] font-medium py-5 max-lg:text-[28px] max-md:text-[16px] leading-[100%] tracking-[-0.05em] max-sm:text-[14px]">
+            <div className="bg-white rounded-[10px] min-h-[60px] sm:min-h-[80px] px-4 sm:px-5 flex items-center text-[14px] sm:text-[18px] lg:text-[22px] xl:text-[26px] font-medium py-4 leading-[110%] tracking-[-0.03em]">
               Лаборатория Психологии
             </div>
-            <div className="bg-white rounded-[10px] min-h-[90px] px-5 flex items-center text-[22px] lg:text-[26px] xl:text-[32px] font-medium py-5 max-lg:text-[28px] max-md:text-[16px] leading-[100%] tracking-[-0.05em] max-sm:text-[14px]">
+            <div className="bg-white rounded-[10px] min-h-[60px] sm:min-h-[80px] px-4 sm:px-5 flex items-center text-[14px] sm:text-[18px] lg:text-[22px] xl:text-[26px] font-medium py-4 leading-[110%] tracking-[-0.03em]">
               Онлайн-психологическая поддержка 24/7: помощь при тревоге, стрессе и выгорании. Поможем разобраться в
               мыслях, снять стресс и вернуть внутренний баланс. Всё анонимно и безопасно.
             </div>
-            <div className="bg-(--blue) text-white rounded-[10px] min-h-[90px] px-5 flex items-center text-[24px] lg:text-[28px] xl:text-[36px] font-bold py-5 max-lg:text-[28px] max-md:text-[16px] leading-[100%] tracking-[-0.05em] max-sm:text-[14px]">
+            <div className="bg-(--blue) text-white rounded-[10px] min-h-[60px] sm:min-h-[80px] px-4 sm:px-5 flex items-center text-[14px] sm:text-[20px] lg:text-[24px] xl:text-[28px] font-bold py-4 leading-[110%] tracking-[-0.03em]">
               Комбо AtLabs
             </div>
-            <div className="bg-(--blue) text-white rounded-[10px] min-h-[90px] px-5 flex items-center text-[22px] lg:text-[26px] xl:text-[32px] font-medium py-5 max-lg:text-[28px] max-md:text-[16px] leading-[100%] tracking-[-0.05em] max-sm:text-[14px]">
+            <div className="bg-(--blue) text-white rounded-[10px] min-h-[60px] sm:min-h-[80px] px-4 sm:px-5 flex items-center text-[14px] sm:text-[18px] lg:text-[22px] xl:text-[26px] font-medium py-4 leading-[110%] tracking-[-0.03em]">
               Все сервисы сразу: учёба, финансы, развитие и Таро — персональный помощник на каждый день.
             </div>
           </div>
@@ -226,16 +226,16 @@ const HomePage = () => {
       </div>
 
       <Modal maxWidth="1363" isOpen={open} rounded="40" padding="0" showClose={false} onClose={() => setOpen(false)}>
-        <div className="w-full flex flex-col p-[30px] md:p-[75px] lg:p-20 gap-2 sm:gap-[26px] lg:gap-20">
-          <div className="flex flex-col gap-2 sm:gap-5 lg:text-center  w-full ">
-            <h1 className="leading-[100%] text-[#3831BF] font-bold uppercase tracking-[-0.05em] text-[24px] sm:text-[48px] lg:text-[64px]">
+        <div className="w-full flex flex-col p-[30px] md:p-[50px] lg:p-16 gap-2 sm:gap-[20px] lg:gap-10">
+          <div className="flex flex-col gap-2 sm:gap-4 lg:text-center w-full">
+            <h1 className="leading-[100%] text-[#3831BF] font-bold uppercase tracking-[-0.05em] text-[24px] sm:text-[40px] lg:text-[56px]">
               Скоро запуск новой лаборатории!
             </h1>
-            <p className="text-[14px] sm:text-[24px] lg:text-[32px] text-[#1D1D1D] leading-[100%] tracking-[-0.05em]">
+            <p className="text-[14px] sm:text-[20px] lg:text-[28px] text-[#1D1D1D] leading-[120%] tracking-[-0.03em]">
               Получите уведомление о запуске и бонус при старте.
             </p>
           </div>
-          <form action="" className="max-w-[892px] flex flex-col gap-2 sm:gap-[30px] w-full mx-auto">
+          <form action="" className="max-w-[892px] flex flex-col gap-2 sm:gap-[20px] w-full mx-auto">
             <InputForm label="Введите почту" placeholder="email.com" name={"email"} />
             <Button type="submit">Отправить</Button>
           </form>

@@ -22,23 +22,29 @@ interface MobileTicketCardProps {
   price: string;
   pricePerUnit: string;
   savings?: string;
+  multiplier?: string;
   selected: boolean;
   onSelect: () => void;
 }
 
-const MobileTicketCard = ({ label, price, pricePerUnit, savings, selected, onSelect }: MobileTicketCardProps) => {
+const MobileTicketCard = ({ label, price, pricePerUnit, savings, multiplier, selected, onSelect }: MobileTicketCardProps) => {
   return (
     <div
       onClick={onSelect}
-      className={`bg-white rounded-[20px] p-6 flex flex-col gap-[37px] cursor-pointer ${
+      className={`bg-white rounded-[20px] p-6 flex flex-col gap-[30px] cursor-pointer ${
         selected ? "border-2 border-[#1D1D1D]" : ""
       }`}
     >
-      <div className="flex justify-between">
-        <p className="text-[24px] font-medium text-[#545454]">{label}</p>
+      <div className="flex justify-between items-center">
+        <div className="flex items-center gap-2">
+          <p className="text-[20px] font-medium text-[#545454]">{label}</p>
+          {multiplier && multiplier !== "x1" && (
+            <span className="text-[18px] text-[#3831BF] font-bold">{multiplier}</span>
+          )}
+        </div>
 
         {savings && (
-          <div className="bg-[#3831BF] text-[16px] font-medium flex items-center justify-center rounded-[10px] px-2 text-white">
+          <div className="bg-[#3831BF] text-[14px] font-medium flex items-center justify-center rounded-[10px] px-2 py-1 text-white">
             {savings}
           </div>
         )}
@@ -48,7 +54,7 @@ const MobileTicketCard = ({ label, price, pricePerUnit, savings, selected, onSel
         <CheckBoxCircle size={30} checked={!!selected} clickable={false} />
         <div className="flex flex-col items-end">
           <p className="text-[14px] text-[#545454]">{pricePerUnit}</p>
-          <p className="text-[48px] font-bold">{price}₽</p>
+          <p className="text-[40px] font-bold">{price}₽</p>
         </div>
       </div>
     </div>
@@ -171,11 +177,11 @@ const MobileSliderLabs = ({ filterTabs }: MobileSliderLabsProps) => {
   return (
     <div className="md:hidden">
       <div>
-        <div className="flex flex-col gap-[15px] ">
-          <h4 className="text-[#3831BF] font-bold text-[64px] uppercase leading-[100%] max-md:text-[40px] max-sm:text-[28px]">
+        <div className="flex flex-col gap-[15px]">
+          <h4 className="text-[#3831BF] font-bold text-[28px] uppercase leading-[100%]">
             Открой полный доступ к AtLabs
           </h4>
-          <p className="text-[#3831BF]/60 text-[32px] leading-[120%] max-w-[900px] w-full max-md:text-[20px] max-sm:text-[16px]">
+          <p className="text-[#3831BF]/60 text-[16px] leading-[120%] max-w-[900px] w-full">
             При регистрации дарим 100 токенов, чтобы протестировать сервис. И кнопка регистрации
           </p>
         </div>

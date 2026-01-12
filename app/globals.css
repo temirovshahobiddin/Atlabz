@@ -28,9 +28,8 @@ body {
 }
 
 .title-1 {
-  font-family: Inter;
+  font-family: Inter, sans-serif;
   font-weight: 700;
-  font-style: Bold;
   font-size: 64px;
   color: #3831bf;
   line-height: 100%;
@@ -45,17 +44,17 @@ body {
   }
 }
 
-@media (max-width: 1064px) {
+@media (max-width: 768px) {
   .title-1 {
     font-size: 40px;
-    letter-spacing: 0%;
+    letter-spacing: -0.02em;
   }
 }
 
-@media (max-width: 395px) {
+@media (max-width: 480px) {
   .title-1 {
-    font-size: 32px;
-    letter-spacing: 0%;
+    font-size: 28px;
+    letter-spacing: -0.02em;
   }
 }
 

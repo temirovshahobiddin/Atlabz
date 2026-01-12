@@ -142,8 +142,8 @@ const HeroBlock = ({
         <div className="flex flex-col gap-[15px] w-full">
           <div className="flex justify-between max-lg:flex-col-reverse max-lg:gap-5">
             <h3
-              className="max-w-[718px] lg:max-w-[900px] xl:max-w-[1100px] w-full text-[32px] sm:text-[40px] lg:text-[48px] xl:text-[64px] font-bold uppercase tracking-[-0.05em]
- leading-[100%] blue max-md:text-[40px]  max-sm:text-[32px]  max-sm:text-center"
+              className="max-w-[718px] lg:max-w-[900px] xl:max-w-[1100px] w-full text-[28px] sm:text-[40px] lg:text-[48px] xl:text-[64px] font-bold uppercase tracking-[-0.05em]
+ leading-[100%] blue max-sm:text-center"
             >
               {title}
             </h3>
@@ -174,8 +174,8 @@ const HeroBlock = ({
 
           <div className="lg:max-w-[500px] xl:max-w-[500px] w-full flex flex-col gap-4 sm:gap-[30px] max-md:max-w-[718px]">
             <p
-              className="text-[20px] lg:text-[24px] xl:text-[32px] leading-[120%] tracking-[-0.05em]
- font-medium  max-md:text-[24px] max-sm:hidden"
+              className="text-[18px] sm:text-[20px] lg:text-[24px] xl:text-[32px] leading-[120%] tracking-[-0.05em]
+ font-medium max-sm:hidden"
             >
               {description}
             </p>
@@ -201,8 +201,10 @@ const HeroBlock = ({
                       index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
                     }`}
                     style={{
-                      transform: isDragging && index === currentSlide ? `translateX(${dragOffset * 0.5}px)` : undefined
+                      transform: isDragging && index === currentSlide ? `translateX(${dragOffset * 0.5}px)` : undefined,
+                      imageRendering: 'auto'
                     }}
+                    loading="eager"
                   />
                 ))}
               </div>
@@ -213,23 +215,35 @@ const HeroBlock = ({
                   transition: isDragging ? 'none' : 'transform 0.3s ease-out'
                 }}
               >
-                <div className="flex gap-2.5 h-[102px] max-sm:h-[53px] justify-center">
-                  <div className="h-full w-[259px] max-sm:w-[171px] backdrop-blur-[25px] bg-linear-to-r bg-size-[200%_100%] bg-position-[right_center] from-white/0 to-white flex items-center justify-center">
-                    <span className="text-[28px] max-sm:text-[16px] font-semibold bg-linear-to-r bg-size-[200%_100%] bg-position-[right_center] from-white/0 to-black bg-clip-text text-transparent transition-opacity duration-500">
+                <div className="flex gap-2.5 h-[70px] max-sm:h-[53px] justify-center items-center">
+                  <div className="h-full w-[259px] max-sm:w-[120px] backdrop-blur-[25px] bg-linear-to-r bg-size-[200%_100%] bg-position-[right_center] from-white/0 to-white flex items-center justify-center">
+                    <span className="text-[20px] max-sm:text-[14px] font-semibold bg-linear-to-r bg-size-[200%_100%] bg-position-[right_center] from-white/0 to-black bg-clip-text text-transparent transition-opacity duration-500 text-center leading-[110%]">
                       {prevSlideData.text}
                     </span>
                   </div>
 
-                  <div className="h-full w-[359px] z-20 max-sm:w-[171px] bg-white flex items-center justify-center text-[28px] max-sm:text-[16px] font-semibold">
-                    <span className="transition-opacity duration-500">{currentSlideData.text}</span>
+                  <div className="h-full w-[280px] z-20 max-sm:w-[160px] bg-white flex items-center justify-center text-[20px] max-sm:text-[14px] font-semibold px-2">
+                    <span className="transition-opacity duration-500 text-center leading-[110%]">{currentSlideData.text}</span>
                   </div>
 
-                  <div className="h-full w-[259px] max-sm:w-[171px] backdrop-blur-[25px] bg-linear-to-r from-white to-white/0 flex items-center justify-center">
-                    <span className="text-[28px] max-sm:text-[16px] font-semibold bg-linear-to-r from-black to-white/0 bg-clip-text text-transparent transition-opacity duration-500">
+                  <div className="h-full w-[259px] max-sm:w-[120px] backdrop-blur-[25px] bg-linear-to-r from-white to-white/0 flex items-center justify-center">
+                    <span className="text-[20px] max-sm:text-[14px] font-semibold bg-linear-to-r from-black to-white/0 bg-clip-text text-transparent transition-opacity duration-500 text-center leading-[110%]">
                       {nextSlideData.text}
                     </span>
                   </div>
                 </div>
+              </div>
+              {/* Mobile navigation dots */}
+              <div className="flex gap-2 mt-3">
+                {carouselSlides.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => goToSlide(index)}
+                    className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                      index === currentSlide ? 'bg-[#3831BF] w-6' : 'bg-[#D9D9D9]'
+                    }`}
+                  />
+                ))}
               </div>
             </div>
             <div className="sm:hidden">
@@ -282,19 +296,19 @@ const HeroBlock = ({
             </div>
           </div>
           <div className="w-full overflow-hidden relative">
-            <div className="flex gap-[15px] h-28 lg:h-20 xl:h-28">
+            <div className="flex gap-[15px] h-20 lg:h-20 xl:h-24">
               <div className="h-full min-w-[300px] lg:min-w-[350px] xl:min-w-[439px] backdrop-blur-[25px] bg-linear-to-r from-white/0 to-white flex items-center justify-center">
-                <span className="text-[28px] lg:text-[32px] xl:text-[40px] font-semibold bg-linear-to-r from-white/0 to-black bg-clip-text text-transparent transition-opacity duration-500">
+                <span className="text-[24px] lg:text-[28px] xl:text-[32px] font-semibold bg-linear-to-r from-white/0 to-black bg-clip-text text-transparent transition-opacity duration-500 text-center leading-[110%] px-2">
                   {prevSlideData.text}
                 </span>
               </div>
 
-              <div className="h-full min-w-[600px] lg:min-w-[700px] xl:min-w-[892px] bg-white flex items-center justify-center text-[28px] lg:text-[32px] xl:text-[40px] font-semibold shrink-0">
-                <span className="transition-opacity duration-500">{currentSlideData.text}</span>
+              <div className="h-full min-w-[600px] lg:min-w-[700px] xl:min-w-[892px] bg-white flex items-center justify-center text-[24px] lg:text-[28px] xl:text-[32px] font-semibold shrink-0">
+                <span className="transition-opacity duration-500 text-center leading-[110%]">{currentSlideData.text}</span>
               </div>
 
               <div className="h-full min-w-[300px] lg:min-w-[350px] xl:min-w-[439px] backdrop-blur-[25px] bg-linear-to-r from-white to-white/0 flex items-center justify-center">
-                <span className="text-[28px] lg:text-[32px] xl:text-[40px] font-semibold bg-linear-to-r from-black to-white/0 bg-clip-text text-transparent transition-opacity duration-500">
+                <span className="text-[24px] lg:text-[28px] xl:text-[32px] font-semibold bg-linear-to-r from-black to-white/0 bg-clip-text text-transparent transition-opacity duration-500 text-center leading-[110%] px-2">
                   {nextSlideData.text}
                 </span>
               </div>
